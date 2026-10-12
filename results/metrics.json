@@ -1,0 +1,131 @@
+{
+  "dataset": {
+    "train_rows": 125973,
+    "test_rows": 22544,
+    "test_attack_types_unseen_in_train": [
+      "apache2",
+      "httptunnel",
+      "mailbomb",
+      "mscan",
+      "named",
+      "processtable",
+      "ps",
+      "saint",
+      "sendmail",
+      "snmpgetattack",
+      "snmpguess",
+      "sqlattack",
+      "udpstorm",
+      "worm",
+      "xlock",
+      "xsnoop",
+      "xterm"
+    ],
+    "test_rows_with_unseen_attacks": 3750
+  },
+  "binary_KDDTest+": {
+    "LogisticRegression": {
+      "accuracy": 0.7448,
+      "precision": 0.9134,
+      "recall(detection_rate)": 0.6094,
+      "f1": 0.731,
+      "false_positive_rate": 0.0763,
+      "roc_auc": 0.7933,
+      "train_s": 17.8
+    },
+    "RandomForest": {
+      "accuracy": 0.7827,
+      "precision": 0.9692,
+      "recall(detection_rate)": 0.6386,
+      "f1": 0.7699,
+      "false_positive_rate": 0.0268,
+      "roc_auc": 0.9627,
+      "train_s": 46.8
+    },
+    "XGBoost": {
+      "accuracy": 0.7934,
+      "precision": 0.9685,
+      "recall(detection_rate)": 0.6585,
+      "f1": 0.784,
+      "false_positive_rate": 0.0283,
+      "roc_auc": 0.9695,
+      "train_s": 60.1
+    },
+    "SoftVotingEnsemble": {
+      "accuracy": 0.7846,
+      "precision": 0.9687,
+      "recall(detection_rate)": 0.6423,
+      "f1": 0.7725,
+      "false_positive_rate": 0.0274,
+      "roc_auc": 0.9614
+    },
+    "IsolationForest(normal-only)": {
+      "accuracy": 0.7432,
+      "precision": 0.9778,
+      "recall(detection_rate)": 0.5616,
+      "f1": 0.7134,
+      "false_positive_rate": 0.0169,
+      "roc_auc": 0.9488
+    },
+    "Hybrid(Ensemble OR IsolationForest)": {
+      "accuracy": 0.8213,
+      "precision": 0.9697,
+      "recall(detection_rate)": 0.7082,
+      "f1": 0.8186,
+      "false_positive_rate": 0.0292
+    }
+  },
+  "detection_rate_on_unseen_attack_types": {
+    "SoftVotingEnsemble": 0.3283,
+    "IsolationForest": 0.4208,
+    "Hybrid": 0.5485
+  },
+  "multiclass_XGBoost_KDDTest+": {
+    "accuracy": 0.7748,
+    "macro_f1": 0.5355,
+    "per_class_recall": {
+      "normal": 0.9715,
+      "DoS": 0.8313,
+      "Probe": 0.6547,
+      "R2L": 0.0864,
+      "U2R": 0.05
+    },
+    "confusion_matrix": [
+      [
+        9434,
+        68,
+        206,
+        2,
+        1
+      ],
+      [
+        1159,
+        6200,
+        99,
+        0,
+        0
+      ],
+      [
+        671,
+        165,
+        1585,
+        0,
+        0
+      ],
+      [
+        2513,
+        0,
+        1,
+        238,
+        2
+      ],
+      [
+        188,
+        0,
+        0,
+        2,
+        10
+      ]
+    ]
+  }
+}
