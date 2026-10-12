@@ -49,11 +49,13 @@ uvicorn nids.api:app --port 8001
 curl -X POST localhost:8001/predict -H 'content-type: application/json' -d @examples/flow.json
 ```
 
+Response for a SYN-flood (`neptune`) flow from the test set:
+
 ```json
-{"results": [{"attack": true, "probability": 0.998, "category": "DoS", "zero_day_anomaly": true,
-  "severity": "high",
-  "reasons": [{"feature": "src_bytes", "impact": 4.1, "direction": "towards ATTACK"},
-              {"feature": "count", "impact": 1.9, "direction": "towards ATTACK"}, ...]}]}
+{"results": [{"attack": true, "probability": 1.0, "category": "DoS", "zero_day_anomaly": true, "severity": "high",
+  "reasons": [{"feature": "src_bytes", "impact": 4.234, "direction": "towards ATTACK"},
+              {"feature": "count", "impact": 2.154, "direction": "towards ATTACK"},
+              {"feature": "service_private", "impact": 1.774, "direction": "towards ATTACK"}, "..."]}]}
 ```
 
 ## Pipeline
