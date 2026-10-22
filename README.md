@@ -1,5 +1,7 @@
 # Network Intrusion Detection: Ensemble ML, Zero-Day Anomalies and SHAP
 
+[![tests](https://github.com/Drakeion2532/network-intrusion-detection/actions/workflows/tests.yml/badge.svg)](https://github.com/Drakeion2532/network-intrusion-detection/actions/workflows/tests.yml)
+
 An explainable intrusion detection system (IDS) for network flows. It uses a **supervised ensemble** (Logistic Regression + Random Forest + XGBoost) to catch known attacks and an **Isolation Forest trained only on normal traffic** to catch attacks it has never seen. **SHAP** explains every alert so a SOC analyst can see why it fired. A REST API scores flows in real time.
 
 Built on the **NSL-KDD** benchmark. The official test set contains **17 attack types that never appear in training**, which is the realistic part. Clean random splits of this data give 99% accuracy, and this project deliberately avoids that shortcut.
@@ -27,8 +29,9 @@ Built on the **NSL-KDD** benchmark. The official test set contains **17 attack t
 
 ### What this shows
 
-* Supervised models hit about 99% on familiar attacks but **fall to about 33% on new ones**. That is the core weakness of signature-like ML IDS.
-* Adding an anomaly detector that only knows "normal" raises zero-day detection by about **1.7×** while keeping false positives under 3%.
+* On the test set, the supervised ensemble detects **77%** of attacks whose type appeared in training but only **33%** of attacks of new types. That gap is the core weakness of signature-like ML IDS.
+* Adding an anomaly detector that only knows "normal" raises zero-day detection by about **1.7×** (32.8% → 54.9%) while keeping false positives under 3%.
+* XGBoost on its own scores slightly higher than the soft-voting ensemble (ROC-AUC 0.970 vs 0.961). On this test set the ensemble adds nothing over XGBoost, so using XGBoost alone would be a fair simplification.
 * The 5-class XGBoost categoriser reaches 77.5% accuracy (DoS 83%, Probe 65% recall). R2L/U2R recall is low (9% / 5%) because those classes are rare in training and mostly unseen in test. This is a known open problem on NSL-KDD.
 * SHAP shows the model relies on sensible signals: tiny `src_bytes` with a high connection `count` (SYN floods), `service_private` (port scans), and `hot` indicators (R2L).
 

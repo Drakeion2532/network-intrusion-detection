@@ -87,6 +87,12 @@ def main():
     hybrid = ((pe >= 0.5) | (a_pred == 1)).astype(int)
     res["Hybrid(Ensemble OR IsolationForest)"] = binary_metrics(yte, hybrid)
     out["binary_KDDTest+"] = res
+    seen_attack = (yte == 1) & ~unseen_mask
+    out["detection_rate_on_seen_attack_types"] = {
+        "SoftVotingEnsemble": round(float((pe[seen_attack] >= 0.5).mean()), 4),
+        "IsolationForest": round(float(a_pred[seen_attack].mean()), 4),
+        "Hybrid": round(float(hybrid[seen_attack].mean()), 4),
+        "test_rows": int(seen_attack.sum())}
     out["detection_rate_on_unseen_attack_types"] = {
         "SoftVotingEnsemble": round(float((pe[unseen_mask] >= 0.5).mean()), 4),
         "IsolationForest": round(float(a_pred[unseen_mask].mean()), 4),

@@ -75,6 +75,12 @@
       "false_positive_rate": 0.0292
     }
   },
+  "detection_rate_on_seen_attack_types": {
+    "SoftVotingEnsemble": 0.772,
+    "IsolationForest": 0.6197,
+    "Hybrid": 0.7741,
+    "test_rows": 9083
+  },
   "detection_rate_on_unseen_attack_types": {
     "SoftVotingEnsemble": 0.3283,
     "IsolationForest": 0.4208,
