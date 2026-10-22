@@ -37,6 +37,32 @@ Built on the **NSL-KDD** benchmark. The official test set contains **17 attack t
 
 Full metrics, including confusion matrices, are in [`results/metrics.json`](results/metrics.json).
 
+## Triage a batch of traffic (`nids/triage.py`)
+
+A security operations (SOC) team doesn't read thousands of single-flow alerts. They work **incidents**, most severe first. `nids.triage` scores a batch of flows, groups the alerts by attack category, service and connection flag, ranks the incidents, and attaches the main reasons in plain words:
+
+```bash
+python -m nids.triage --demo        # 3,000 flows sampled from KDDTest+
+python -m nids.triage flows.csv     # your own flows with the 41 NSL-KDD features
+```
+
+On the demo batch, **3,000 flows → 1,231 alerting flows → 141 incidents** (105 high severity):
+
+* **The alerts are real attacks:** only 3% of alerting flows were normal traffic.
+* **Coverage:** 70% of real attack flows are inside an incident, and 55% of flows from attack types never seen in training are caught.
+* **Prioritisation:** the top 10 incidents hold 58% of all alerting flows. 70 incidents are tiny (1–2 flows), so a team would work down the ranked list rather than read every incident.
+
+| Incident | Category | Service / flag | Flows | Main reasons |
+|---|---|---|---|---|
+| INC-001 | DoS | private / REJ | 229 | bytes sent by the source; connections to the same host in 2 s |
+| INC-002 | DoS | private / S0 | 108 | bytes sent by the source; bytes sent back; connections to the same host in 2 s |
+| INC-003 | DoS | ecr_i / SF | 90 | ICMP echo traffic; bytes sent back |
+| INC-004 | Probe | other / REJ | 66 | connections to the same host in 2 s; host REJ error rate |
+
+Outputs: `results/triage_incidents.csv` (one row per incident) and `results/triage_alerts.csv` (every alerting flow with its incident id and reasons).
+
+**Using it on real traffic:** the model expects NSL-KDD flow features. Live captures, NetFlow or CICFlowMeter output have different features, so they need converting, and ideally the model should be retrained on a modern dataset (see Roadmap) before production use.
+
 ## Run it
 
 ```bash

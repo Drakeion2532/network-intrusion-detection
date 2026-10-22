@@ -28,3 +28,17 @@ def test_api_scores_and_explains():
     assert len(r) == 20 and all("reasons" in x and len(x["reasons"]) == 5 for x in r)
     acc = np.mean([x["attack"] == bool(y) for x, y in zip(r, te["is_attack"].iloc[:20])])
     assert acc >= 0.7
+
+
+def test_triage_groups_alerts_into_ranked_incidents():
+    from nids.data import load
+    from nids.triage import triage
+    flows = load("test").sample(400, random_state=1).reset_index(drop=True)
+    alerts, inc = triage(flows)
+    assert len(alerts) > 0 and len(inc) < len(alerts)                 # fewer incidents than alerts
+    assert alerts["incident"].notna().all()                           # every alert belongs to an incident
+    assert inc["flows"].sum() == len(alerts)
+    sev = inc["severity"].tolist()
+    assert sev == sorted(sev, key=lambda s: {"high": 0, "medium": 1}[s])   # high severity first
+    assert inc["main_reasons"].str.len().gt(0).all()
+    assert (flows.loc[alerts.index, "is_attack"] == 1).mean() > 0.9  # alerts are mostly real attacks

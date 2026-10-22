@@ -1,0 +1,142 @@
+incident,category,service,flag,flows,high_severity,anomaly_flagged_flows,max_probability,severity,main_reasons
+INC-001,DoS,private,REJ,229,229,229,1.0,high,bytes sent by the source; connections to the same host in 2 s; service = private
+INC-002,DoS,private,S0,108,108,108,1.0,high,bytes sent by the source; bytes sent back; connections to the same host in 2 s
+INC-003,DoS,ecr_i,SF,90,86,1,1.0,high,service = ecr_i; protocol = icmp; bytes sent back
+INC-004,Probe,other,REJ,66,65,66,0.997,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-005,DoS,http,RSTR,55,3,17,0.943,high,bytes sent by the source; connection duration; host REJ error rate
+INC-006,DoS,http,SF,45,33,0,0.988,high,'hot' indicators (sensitive files / commands); bytes sent by the source; host REJ error rate
+INC-007,Probe,private,SF,39,39,30,1.0,high,bytes sent by the source; service = private; bytes sent back
+INC-008,Probe,eco_i,SF,30,30,0,0.999,high,protocol = icmp; bytes sent by the source; share from the same source port
+INC-009,Probe,private,REJ,30,30,30,1.0,high,bytes sent by the source; service = private; connections to the same host in 2 s
+INC-010,Probe,other,SF,25,21,20,0.952,high,bytes sent by the source; bytes sent back; connections to the same host in 2 s
+INC-011,DoS,telnet,S0,21,7,21,1.0,high,bytes sent by the source; connections to the same host in 2 s; host SYN error rate
+INC-012,DoS,http,S0,17,3,17,0.998,high,bytes sent by the source; dst host srv serror rate; bytes sent back
+INC-013,Probe,other,S0,15,15,15,1.0,high,bytes sent by the source; host REJ error rate; connections to the same host in 2 s
+INC-014,Probe,private,RSTR,11,11,11,1.0,high,bytes sent by the source; service = private; host REJ error rate
+INC-015,DoS,ctf,REJ,9,9,9,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-016,DoS,domain,REJ,9,9,9,0.993,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-017,DoS,imap4,S0,9,9,9,1.0,high,bytes sent by the source; host SYN error rate; connections to the same host in 2 s
+INC-018,Probe,private,SH,8,8,8,0.994,high,bytes sent by the source; service = private; bytes sent back
+INC-019,DoS,pop_3,S0,7,7,7,0.965,high,bytes sent by the source; host SYN error rate; bytes sent back
+INC-020,DoS,finger,S0,7,6,7,1.0,high,bytes sent by the source; bytes sent back; connections to the same host in 2 s
+INC-021,DoS,private,RSTO,7,7,7,1.0,high,bytes sent by the source; connections to the same host in 2 s; service = private
+INC-022,DoS,telnet,RSTO,6,4,6,0.99,high,bytes sent by the source; host REJ error rate; connections to the same host in 2 s
+INC-023,DoS,uucp,RSTO,6,6,6,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-024,DoS,private,SF,6,6,0,1.0,high,service = private; bytes sent by the source; bytes sent back
+INC-025,DoS,Z39_50,REJ,6,6,6,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-026,DoS,whois,REJ,6,6,6,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-027,DoS,echo,RSTO,6,6,6,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-028,DoS,iso_tsap,REJ,6,6,6,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-029,DoS,courier,REJ,6,6,6,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-030,DoS,finger,RSTO,6,6,6,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-031,DoS,http_443,S0,5,5,5,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-032,DoS,csnet_ns,REJ,5,5,5,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-033,Probe,other,RSTR,5,5,5,0.996,high,bytes sent by the source; host REJ error rate; share of the host's traffic spread over services
+INC-034,DoS,efs,REJ,5,5,5,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-035,DoS,http,REJ,5,3,5,0.965,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-036,DoS,netbios_dgm,REJ,5,5,5,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-037,DoS,netbios_ns,REJ,4,4,4,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-038,DoS,login,RSTO,4,4,4,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-039,DoS,daytime,RSTO,4,4,4,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-040,DoS,time,RSTO,4,4,4,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-041,DoS,supdup,REJ,4,4,4,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-042,DoS,vmnet,S0,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-043,DoS,whois,S0,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-044,DoS,systat,REJ,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-045,DoS,uucp_path,S0,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-046,DoS,uucp_path,REJ,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-047,DoS,systat,S0,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-048,DoS,mtp,REJ,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-049,DoS,efs,S0,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-050,DoS,ftp_data,REJ,3,3,3,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-051,DoS,iso_tsap,S0,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-052,DoS,nnsp,REJ,3,3,3,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-053,DoS,domain,S0,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-054,DoS,auth,REJ,3,3,3,0.991,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-055,DoS,bgp,REJ,3,3,3,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-056,DoS,netstat,REJ,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-057,DoS,pop_3,RSTO,2,2,2,0.997,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-058,DoS,nnsp,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-059,DoS,nntp,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-060,DoS,pop_2,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-061,DoS,klogin,REJ,2,2,2,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-062,DoS,kshell,REJ,2,2,2,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-063,DoS,name,REJ,2,2,2,1.0,high,bytes sent by the source; host REJ error rate; connections to the same host in 2 s
+INC-064,DoS,hostnames,REJ,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-065,DoS,link,REJ,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-066,DoS,kshell,S0,2,2,2,1.0,high,bytes sent by the source; bytes sent back; dst host srv serror rate
+INC-067,DoS,ftp_data,S0,2,2,2,0.984,high,bytes sent by the source; bytes sent back; dst host srv serror rate
+INC-068,DoS,gopher,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-069,DoS,Z39_50,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-070,DoS,auth,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-071,DoS,ftp,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-072,DoS,printer,RSTO,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-073,DoS,remote_job,REJ,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-074,DoS,smtp,RSTO,2,2,2,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-075,DoS,time,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-076,DoS,ssh,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-077,DoS,sql_net,REJ,2,2,2,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-078,DoS,sql_net,S0,2,2,2,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-079,DoS,ssh,REJ,2,2,2,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-080,DoS,gopher,REJ,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-081,DoS,nntp,RSTO,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-082,DoS,pop_2,REJ,1,1,1,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-083,DoS,netbios_ssn,S0,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-084,DoS,login,S0,1,1,1,1.0,high,bytes sent by the source; bytes sent back; dst host srv serror rate
+INC-085,DoS,imap4,REJ,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-086,DoS,http_443,REJ,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-087,DoS,ldap,REJ,1,1,1,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-088,DoS,courier,S0,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-089,DoS,daytime,S0,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-090,DoS,discard,RSTO,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-091,DoS,csnet_ns,S0,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-092,DoS,ctf,S0,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-093,DoS,exec,RSTO,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-094,DoS,echo,S0,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-095,DoS,ftp,RSTO,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-096,DoS,smtp,S0,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; bytes sent back
+INC-097,Probe,nnsp,RSTR,1,1,1,1.0,high,bytes sent by the source; host REJ error rate; share of the host's traffic on this service
+INC-098,Probe,netbios_dgm,RSTR,1,1,1,1.0,high,bytes sent by the source; host REJ error rate; flag = RSTR
+INC-099,Probe,nnsp,SH,1,1,1,0.998,high,bytes sent by the source; bytes sent back
+INC-100,Probe,http_443,REJ,1,1,1,0.999,high,bytes sent by the source; host REJ error rate; share of the host's traffic spread over services
+INC-101,Probe,finger,RSTO,1,1,1,0.975,high,bytes sent by the source; host REJ error rate; connections to the same host in 2 s
+INC-102,DoS,shell,RSTO,1,1,1,1.0,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-103,DoS,rje,REJ,1,1,1,0.999,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-104,DoS,sunrpc,RSTO,1,1,1,0.998,high,bytes sent by the source; connections to the same host in 2 s; host REJ error rate
+INC-105,Probe,tftp_u,SF,1,1,0,0.927,high,bytes sent by the source; host REJ error rate; connections to the same host in 2 s
+INC-106,unknown-anomaly,telnet,S3,19,0,19,0.462,medium,bytes sent by the source; host REJ error rate
+INC-107,R2L,ftp_data,SF,18,0,0,0.693,medium,connection duration; share from the same source port; bytes sent back
+INC-108,unknown-anomaly,http,S0,14,0,14,0.478,medium,bytes sent by the source
+INC-109,normal,http,RSTR,14,0,0,0.541,medium,connection duration; host REJ error rate; bytes sent by the source
+INC-110,unknown-anomaly,pop_3,RSTO,13,0,13,0.468,medium,bytes sent by the source; host REJ error rate
+INC-111,unknown-anomaly,telnet,RSTO,11,0,11,0.289,medium,bytes sent by the source; host REJ error rate; connections to this service (last 100)
+INC-112,unknown-anomaly,imap4,REJ,9,0,9,0.479,medium,bytes sent by the source
+INC-113,unknown-anomaly,imap4,RSTO,9,0,9,0.428,medium,bytes sent by the source; host REJ error rate
+INC-114,unknown-anomaly,telnet,REJ,8,0,8,0.34,medium,bytes sent by the source; host REJ error rate
+INC-115,unknown-anomaly,pop_3,REJ,6,0,6,0.482,medium,bytes sent by the source; host REJ error rate
+INC-116,unknown-anomaly,sunrpc,REJ,6,0,6,0.47,medium,bytes sent by the source
+INC-117,Probe,sunrpc,REJ,6,0,6,0.723,medium,bytes sent by the source; host REJ error rate
+INC-118,unknown-anomaly,telnet,SF,6,0,6,0.234,medium,bytes sent by the source; host REJ error rate; share of the host's traffic spread over services
+INC-119,normal,ftp_data,SF,4,0,0,0.532,medium,share from the same source port; bytes sent back
+INC-120,normal,imap4,REJ,4,0,4,0.529,medium,bytes sent by the source
+INC-121,Probe,imap4,REJ,3,0,3,0.874,medium,bytes sent by the source; host REJ error rate
+INC-122,Probe,pop_3,REJ,2,0,2,0.579,medium,bytes sent by the source; host REJ error rate
+INC-123,Probe,imap4,SF,2,0,2,0.698,medium,bytes sent by the source
+INC-124,Probe,http,REJ,2,0,2,0.715,medium,bytes sent by the source; host REJ error rate
+INC-125,Probe,pop_3,RSTO,2,0,2,0.595,medium,bytes sent by the source; host REJ error rate
+INC-126,Probe,finger,SF,1,0,0,0.649,medium,bytes sent by the source; host REJ error rate; share of the host's traffic spread over services
+INC-127,Probe,pm_dump,SF,1,0,0,0.542,medium,service = pm_dump; share of REJ errors
+INC-128,Probe,imap4,RSTO,1,0,1,0.521,medium,bytes sent by the source
+INC-129,unknown-anomaly,http,RSTR,1,0,1,0.446,medium,connection duration; bytes sent back; flag = RSTR
+INC-130,unknown-anomaly,http,REJ,1,0,1,0.403,medium,bytes sent by the source; share of the host's traffic spread over services
+INC-131,unknown-anomaly,IRC,RSTR,1,0,1,0.002,medium,unusual compared with normal traffic (anomaly detector)
+INC-132,normal,telnet,SF,1,0,1,0.664,medium,'hot' indicators (sensitive files / commands)
+INC-133,normal,imap4,RSTO,1,0,1,0.549,medium,bytes sent by the source; host REJ error rate
+INC-134,normal,sunrpc,REJ,1,0,1,0.531,medium,bytes sent by the source
+INC-135,Probe,telnet,REJ,1,0,1,0.551,medium,bytes sent by the source
+INC-136,Probe,telnet,RSTO,1,0,1,0.812,medium,bytes sent by the source; host REJ error rate; bytes sent back
+INC-137,Probe,telnet,S3,1,0,1,0.587,medium,bytes sent by the source
+INC-138,unknown-anomaly,imap4,S0,1,0,1,0.49,medium,bytes sent by the source; host SYN error rate
+INC-139,unknown-anomaly,telnet,S0,1,0,1,0.335,medium,bytes sent by the source; host SYN error rate
+INC-140,unknown-anomaly,telnet,RSTR,1,0,1,0.482,medium,bytes sent by the source
+INC-141,unknown-anomaly,telnet,S1,1,0,1,0.182,medium,bytes sent by the source
