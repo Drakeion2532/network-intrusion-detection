@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Shubhan Punde · https://github.com/Drakeion2532/network-intrusion-detection · MIT licence · sp2532-d3352b55697b
 """Lab 2 - Train your first detector and read its confusion matrix.
 Run:  python -m labs.lab2_first_model            (threshold 0.5)
       python -m labs.lab2_first_model 0.3        (try other thresholds!)

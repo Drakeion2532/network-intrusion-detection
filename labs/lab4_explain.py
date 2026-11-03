@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Shubhan Punde · https://github.com/Drakeion2532/network-intrusion-detection · MIT licence · sp2532-d3352b55697b
 """Lab 4 - Why did the model raise this alert? (SHAP)
 Run:  python -m labs.lab4_explain                 (a SYN flood)
       python -m labs.lab4_explain guess_passwd    (any attack name from Lab 1)

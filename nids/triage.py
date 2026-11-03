@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Shubhan Punde · https://github.com/Drakeion2532/network-intrusion-detection · MIT licence · sp2532-d3352b55697b
 """Triage a batch of network flows the way a SOC analyst works: incidents, not single alerts.
 
 Scoring flows one by one produces thousands of alerts. An analyst needs the batch boiled down

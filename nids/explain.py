@@ -1,3 +1,4 @@
+# Copyright (c) 2026 Shubhan Punde · https://github.com/Drakeion2532/network-intrusion-detection · MIT licence · sp2532-d3352b55697b
 """SHAP explanations: global feature importance plot + per-flow reasons."""
 from __future__ import annotations
 
