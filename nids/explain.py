@@ -37,7 +37,8 @@ def global_importance_plot(n=4000):
     import matplotlib.pyplot as plt
     import shap
     from .data import load, feature_frame
-    bundle = joblib.load(ROOT / "models" / "nids.joblib")
+    from .integrity import load_verified
+    bundle = load_verified(ROOT / "models" / "nids.joblib")
     ex = Explainer(bundle)
     X = feature_frame(load("test").sample(n, random_state=0))
     Z = ex.prep.transform(X)

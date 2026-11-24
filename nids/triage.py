@@ -25,7 +25,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .data import COLUMNS, load
+from .data import ATTACK_BY_CATEGORY, COLUMNS, load
 
 ROOT = Path(__file__).resolve().parents[1]
 FEATURES = [c for c in COLUMNS[:41] if c != "num_outbound_cmds"]
@@ -87,6 +87,7 @@ def triage(flows: pd.DataFrame):
             "anomaly_flagged_flows": int(g["zero_day_anomaly"].astype(bool).sum()),   # unlike normal traffic
             "max_probability": round(float(g["probability"].astype(float).max()), 3),
             "severity": "high" if (g["severity"] == "high").any() else "medium",
+            "attack": ATTACK_BY_CATEGORY.get(g["category"].iloc[0], "unmapped"),
             "main_reasons": "; ".join(r for r, _ in reasons_count.most_common(3)),
         })
     inc = pd.DataFrame(rows)

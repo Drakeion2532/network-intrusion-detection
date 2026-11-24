@@ -23,6 +23,7 @@ from sklearn.metrics import (accuracy_score, f1_score, precision_score, recall_s
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
 
+from .integrity import pin
 from .data import load, feature_frame, build_preprocessor, CATEGORIES
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -113,6 +114,7 @@ def main():
     (ROOT / "results" / "metrics.json").write_text(json.dumps(out, indent=2))
     joblib.dump({"binary": ens, "multiclass": mc, "iso": iso, "iso_prep": prep, "iso_threshold": thr,
                  "categories": CATEGORIES}, ROOT / "models" / "nids.joblib", compress=3)
+    pin(ROOT / "models" / "nids.joblib")          # integrity pin checked by every load
     print(json.dumps({k: out[k] for k in ["binary_KDDTest+", "detection_rate_on_unseen_attack_types"]}, indent=2))
     print(json.dumps(out["multiclass_XGBoost_KDDTest+"], indent=2))
 

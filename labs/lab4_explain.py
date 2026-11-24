@@ -6,13 +6,12 @@ Needs the trained model: run  python -m nids.train  once first.
 """
 import sys
 
-import joblib
-
 from nids.data import load, feature_frame
 from nids.explain import Explainer
+from nids.integrity import load_verified
 
 attack = sys.argv[1] if len(sys.argv) > 1 else "neptune"
-bundle = joblib.load("models/nids.joblib")
+bundle = load_verified("models/nids.joblib")
 ex = Explainer(bundle)
 test = load("test")
 rows = test[test["label"] == attack]

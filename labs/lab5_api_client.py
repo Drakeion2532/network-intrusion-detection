@@ -11,10 +11,14 @@ from nids.data import load, feature_frame
 flow = feature_frame(load("test").query("label == 'neptune'").head(1)).iloc[0].to_dict()
 flow = {k: (v.item() if hasattr(v, "item") else v) for k, v in flow.items()}
 
+API_URL = "http://127.0.0.1:8001/predict"   # fixed local endpoint, never user-supplied
+
+
 def ask(f):
-    req = urllib.request.Request("http://127.0.0.1:8001/predict", data=json.dumps({"flows": [f]}).encode(),
+    req = urllib.request.Request(API_URL, data=json.dumps({"flows": [f]}).encode(),
                                  headers={"Content-Type": "application/json"})
-    return json.load(urllib.request.urlopen(req))["results"][0]
+    with urllib.request.urlopen(req, timeout=10) as resp:  # nosec B310 - constant http://127.0.0.1 URL above
+        return json.load(resp)["results"][0]
 
 r = ask(flow)
 print("Original SYN-flood flow ->", r["category"], f"p={r['probability']}", "zero-day flag:", r["zero_day_anomaly"])

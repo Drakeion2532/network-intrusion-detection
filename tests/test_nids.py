@@ -43,3 +43,19 @@ def test_triage_groups_alerts_into_ranked_incidents():
     assert sev == sorted(sev, key=lambda s: {"high": 0, "medium": 1}[s])   # high severity first
     assert inc["main_reasons"].str.len().gt(0).all()
     assert (flows.loc[alerts.index, "is_attack"] == 1).mean() > 0.9  # alerts are mostly real attacks
+
+
+def test_api_rejects_flows_missing_features():
+    from nids.api import app
+    c = TestClient(app)
+    r = c.post("/predict", json={"flows": [{"duration": 0, "protocol_type": "tcp"}]})
+    assert r.status_code == 422 and "missing features" in r.json()["detail"]
+
+
+def test_incidents_carry_an_attack_technique():
+    from nids.triage import triage
+    flows = load("test").sample(300, random_state=2).reset_index(drop=True)
+    _, inc = triage(flows)
+    assert inc["attack"].str.match(r"(T\d{4}|unmapped)").all()
+    dos = inc[inc["category"] == "DoS"]
+    assert dos.empty or dos["attack"].str.startswith("T1498").all()

@@ -8,16 +8,16 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from .data import COLUMNS
 from .explain import Explainer
+from .integrity import load_verified
 
 ROOT = Path(__file__).resolve().parents[1]
-bundle = joblib.load(ROOT / "models" / "nids.joblib")
+bundle = load_verified(ROOT / "models" / "nids.joblib")
 explainer = Explainer(bundle)
 FEATURES = [c for c in COLUMNS[:41] if c != "num_outbound_cmds"]
 app = FastAPI(title="Network Intrusion Detection API")

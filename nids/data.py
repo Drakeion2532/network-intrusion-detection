@@ -46,6 +46,14 @@ ATTACK_CATEGORY = {
                           "sqlattack", "xterm"]},
 }
 CATEGORIES = ["normal", "DoS", "Probe", "R2L", "U2R"]
+# MITRE ATT&CK technique an incident of each category most likely maps to
+ATTACK_BY_CATEGORY = {
+    "DoS": "T1498 Network Denial of Service",
+    "Probe": "T1046 Network Service Discovery",
+    "R2L": "T1110 Brute Force / T1190 Exploit Public-Facing Application",
+    "U2R": "T1068 Exploitation for Privilege Escalation",
+    "unknown-anomaly": "unmapped (anomaly only)",
+}
 
 
 def load(split: str = "train") -> pd.DataFrame:

@@ -106,9 +106,23 @@ Response for a SYN-flood (`neptune`) flow from the test set:
 - [ ] Autoencoder anomaly detector and drift monitoring
 - [ ] Alert forwarding to a SIEM (Wazuh / Splunk HEC)
 
-## Model file safety
+## Model integrity
 
-The bundled model is a `joblib` (pickle) file so the API runs out of the box. Unpickling can run code, so only load model files you trust. To rebuild it from source instead, run `python -m nids.train`.
+The bundled model is a `joblib` (pickle) file, and unpickling a tampered file can run arbitrary code.
+So every load goes through [`nids/integrity.py`](nids/integrity.py): the model's SHA-256 is pinned in
+`models/nids.joblib.sha256` at training time, and the API refuses to start if the file does not match.
+Tests check that a single flipped byte, or a missing pin, is rejected. To rebuild the model from source,
+run `python -m nids.train`, which writes a fresh pin.
+
+## ATT&CK mapping
+
+Every triaged incident carries the MITRE ATT&CK technique its category most likely maps to:
+DoS → T1498, Probe → T1046, R2L → T1110 / T1190, U2R → T1068. Anomaly-only incidents stay unmapped
+rather than guessed.
+
+## Security checks
+
+CI runs `bandit` and `pip-audit` on every push and weekly; see [SECURITY.md](SECURITY.md).
 
 ## How this was built
 
