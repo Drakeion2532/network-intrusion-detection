@@ -1,4 +1,4 @@
-# Copyright (c) 2026 Shubhan Punde · https://github.com/Drakeion2532/network-intrusion-detection · MIT licence · sp2532-d3352b55697b
+# Copyright (c) 2026 Shubhan Punde · MIT licence
 """Lab 3 - The zero-day problem: what happens to attacks the model has never seen?
 Run:  python -m labs.lab3_zero_day
       python -m labs.lab3_zero_day 97      (change the anomaly threshold percentile)

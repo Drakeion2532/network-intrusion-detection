@@ -1,4 +1,4 @@
-# Copyright (c) 2026 Shubhan Punde · https://github.com/Drakeion2532/network-intrusion-detection · MIT licence · sp2532-d3352b55697b
+# Copyright (c) 2026 Shubhan Punde · MIT licence
 """NSL-KDD loading and preprocessing.
 
 NSL-KDD (Tavallaee et al., 2009) fixes the duplicate-record problems of
